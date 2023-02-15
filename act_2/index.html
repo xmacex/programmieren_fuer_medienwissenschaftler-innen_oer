@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Programming for Media Studies, from basics to creative programming</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Programming for Media Studies, from basics to creative
+programming</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#seminar-6.-p5.js-canvas-and-2d-graphics"
+id="toc-seminar-6.-p5.js-canvas-and-2d-graphics">Seminar 6. p5.js,
+canvas and 2D graphics</a>
+<ul>
+<li><a href="#act-2.-from-basics-to-creative-programming"
+id="toc-act-2.-from-basics-to-creative-programming">Act 2. From basics
+to creative programming</a></li>
+<li><a href="#p5.js-web-editor" id="toc-p5.js-web-editor">p5.js web
+editor</a></li>
+<li><a href="#screenshot-2022-10-04-at-12.25.03.png"
+id="toc-screenshot-2022-10-04-at-12.25.03.png">[[Screenshot 2022-10-04
+at 12.25.03.png]]</a></li>
+<li><a href="#p5.js" id="toc-p5.js">p5.js</a></li>
+<li><a href="#the-p5.js-reference" id="toc-the-p5.js-reference">The
+p5.js reference</a></li>
+<li><a href="#dan-shiffman" id="toc-dan-shiffman">💓 Dan Shiffman
+💓</a></li>
+<li><a href="#canvas-and-2d-graphics"
+id="toc-canvas-and-2d-graphics">Canvas and 2D graphics</a></li>
+<li><a href="#break" id="toc-break">Break
+<!-- element style="color: white; text-shadow: black 0px 0px 10px;" --></a></li>
+<li><a href="#section" id="toc-section">🖼</a></li>
+<li><a href="#section-1" id="toc-section-1">🪣🖌</a></li>
+<li><a href="#think-of-the-current-state"
+id="toc-think-of-the-current-state">Think of the current state</a></li>
+<li><a href="#section-2" id="toc-section-2">🎨</a></li>
+<li><a href="#section-3" id="toc-section-3">🐭</a></li>
+<li><a href="#homework" id="toc-homework">Homework</a></li>
+</ul></li>
+<li><a href="#seminar-7.-shapes-and-math"
+id="toc-seminar-7.-shapes-and-math">Seminar 7. Shapes and math</a>
+<ul>
+<li><a href="#homework-review" id="toc-homework-review">Homework
+review</a></li>
+<li><a href="#always-remember-the-reference-documentation"
+id="toc-always-remember-the-reference-documentation">Always remember the
+reference documentation</a></li>
+<li><a href="#shapes" id="toc-shapes">Shapes</a></li>
+<li><a href="#math" id="toc-math">Math</a></li>
+<li><a href="#remember-iteration-from-act-1"
+id="toc-remember-iteration-from-act-1">Remember iteration from Act
+1?</a>
+<ul>
+<li><a href="#array-of-concentric-circles"
+id="toc-array-of-concentric-circles">Array of concentric
+circles</a></li>
+<li><a href="#a-composition-of-lines" id="toc-a-composition-of-lines">A
+composition of lines</a></li>
+</ul></li>
+<li><a href="#the-3-transformations" id="toc-the-3-transformations">The
+3 transformations</a></li>
+<li><a href="#coding" id="toc-coding">Coding</a></li>
+<li><a href="#homework-1" id="toc-homework-1">Homework</a></li>
+</ul></li>
+<li><a href="#seminar-8.-functions"
+id="toc-seminar-8.-functions">Seminar 8. Functions</a>
+<ul>
+<li><a href="#homework-review-1" id="toc-homework-review-1">Homework
+review</a>
+<ul>
+<li><a href="#composing-shapes" id="toc-composing-shapes">Composing
+shapes</a></li>
+</ul></li>
+<li><a href="#defining-functions-and-calling-them"
+id="toc-defining-functions-and-calling-them">Defining functions and
+calling them</a></li>
+<li><a href="#the-anatomy-of-a-function-definition"
+id="toc-the-anatomy-of-a-function-definition">The anatomy of a function
+definition</a></li>
+<li><a href="#functions-can-take-arguments-input"
+id="toc-functions-can-take-arguments-input">Functions can take arguments
+(input)</a></li>
+<li><a href="#functions-can-return-a-value-output"
+id="toc-functions-can-return-a-value-output">Functions can return a
+value (output)</a></li>
+<li><a href="#why-functions" id="toc-why-functions">Why
+functions?</a></li>
+<li><a href="#functions-for-randomness"
+id="toc-functions-for-randomness">Functions for randomness</a>
+<ul>
+<li><a href="#a-composition-of-lines-with-random-displacement"
+id="toc-a-composition-of-lines-with-random-displacement">A composition
+of lines with random displacement</a></li>
+</ul></li>
+<li><a href="#screenshot-2022-10-12-at-16.01.43.png"
+id="toc-screenshot-2022-10-12-at-16.01.43.png">[[Screenshot 2022-10-12
+at 16.01.43.png]]</a></li>
+<li><a href="#the-open-work" id="toc-the-open-work">“The open
+work”</a></li>
+<li><a href="#arte-programmata-milan-1962."
+id="toc-arte-programmata-milan-1962."><em>Arte programmata</em> Milan,
+1962.</a>
+<ul>
+<li><a href="#did-you-bring-pen-and-paper"
+id="toc-did-you-bring-pen-and-paper">Did you bring pen and paper?
+📝</a></li>
+<li><a href="#modeling" id="toc-modeling">Modeling</a></li>
+</ul></li>
+<li><a href="#homework-2" id="toc-homework-2">Homework</a></li>
+<li><a href="#bonus-non-modernist-content"
+id="toc-bonus-non-modernist-content">Bonus (non-modernist)
+content</a></li>
+</ul></li>
+<li><a href="#seminar-9.-image-manipulation"
+id="toc-seminar-9.-image-manipulation">Seminar 9. Image manipulation</a>
+<ul>
+<li><a href="#homework-review-2" id="toc-homework-review-2">Homework
+review</a></li>
+<li><a href="#get-back-out-there" id="toc-get-back-out-there">Get back
+out there!</a></li>
+<li><a href="#what-is-an-image-on-a-computer"
+id="toc-what-is-an-image-on-a-computer">What is an image on a
+computer?</a></li>
+<li><a href="#pixel-sorting" id="toc-pixel-sorting">Pixel
+sorting</a></li>
+<li><a href="#homework-3" id="toc-homework-3">Homework</a></li>
+</ul></li>
+<li><a href="#seminar-10.-show-and-tell"
+id="toc-seminar-10.-show-and-tell">Seminar 10. Show and Tell</a>
+<ul>
+<li><a href="#agenda" id="toc-agenda">Agenda</a></li>
+<li><a href="#roll-call" id="toc-roll-call">Roll call</a></li>
+<li><a href="#show-and-tell" id="toc-show-and-tell">Show and
+Tell</a></li>
+<li><a href="#from-act-2-to-act-3" id="toc-from-act-2-to-act-3">From Act
+2 to Act 3</a></li>
+<li><a href="#reflection-with-paul"
+id="toc-reflection-with-paul">Reflection with Paul</a></li>
+</ul></li>
+</ul>
+</nav>
+<p>Programmieren für Medienwissenshaftler*innen (051745-WiSe22/23)</p>
+<h1 id="seminar-6.-p5.js-canvas-and-2d-graphics">Seminar 6. p5.js,
+canvas and 2D graphics</h1>
+<hr />
+<h2 id="act-2.-from-basics-to-creative-programming">Act 2. From basics
+to creative programming</h2>
+<ul>
+<li>We build on Act 1</li>
+<li>We move to <em>tabula rasa</em>, literally</li>
+<li>Complexity out of simplicity – cannot be unseen ;)</li>
+<li>We will touch upon shared history and possibilities of arts and
+technology</li>
+<li>And modern art</li>
+<li>And post-internet art and “new aesthetics”</li>
+</ul>
+<hr />
+<h2 id="p5.js-web-editor">p5.js web editor</h2>
+<h2 id="screenshot-2022-10-04-at-12.25.03.png">[[Screenshot 2022-10-04
+at 12.25.03.png]]</h2>
+<p>Let’s get signed up.</p>
+<hr />
+<h2 id="p5.js">p5.js</h2>
+<ul>
+<li>What is it? Where did it come from?</li>
+<li>What is a “library” anyway?</li>
+<li>Lauren McCarthy’s JavaScript version of Casey Reas and Ben Fry’s
+<em>Processing</em>.</li>
+<li>Open Source, so community matters hugely!!</li>
+<li>But what is “open source”?</li>
+<li>Processing Foundation</li>
+</ul>
+<p>See Soon+Cox (2020) <em><a
+href="https://aesthetic-programming.net/">Æsthetic Programming</a></em>
+<em>start()</em> in Chapter 1.</p>
+<hr />
+<h2 id="the-p5.js-reference">The p5.js reference</h2>
+<p><code>p5.js reference</code> 🔍</p>
+<p>https://p5js.org/reference/</p>
+<p>It’s interactive :)</p>
+<p>See Soon+Cox (2020) <em><a
+href="https://aesthetic-programming.net/">Æsthetic Programming</a></em>
+<em>Reading the reference guide</em> in Chapter 1.</p>
+<hr />
+<h2 id="dan-shiffman">💓 Dan Shiffman 💓</h2>
+<p>🚂 The Coding Train 🚂</p>
+<ul>
+<li>https://thecodingtrain.com/</li>
+<li>https://thecodingtrain.com/tracks/code-programming-with-p5-js</li>
+<li>https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw</li>
+</ul>
+<hr />
+<h2 id="canvas-and-2d-graphics">Canvas and 2D graphics</h2>
+<ul>
+<li><code>setup()</code> and <code>draw()</code></li>
+<li>canvas</li>
+<li>coordinates</li>
+<li><code>circle</code>. Let’s look at the reference</li>
+</ul>
+<p>See Soon+Cox (2020) <em><a
+href="https://aesthetic-programming.net/">Æsthetic Programming</a></em>
+<em>My first program</em> in Chapter 1.</p>
+<hr />
+<!-- slide bg="[[/daily/_resources/IMG_20220905_175400.jpg]]" -->
+<h2 id="break">Break
+<!-- element style="color: white; text-shadow: black 0px 0px 10px;" --></h2>
+<hr />
+<h2 id="section">🖼</h2>
+<p><code>background()</code></p>
+<hr />
+<h2 id="section-1">🪣🖌</h2>
+<p><code>fill()</code> and <code>stroke()</code></p>
+<p>and <code>noFill()</code> and <code>noStroke()</code></p>
+<hr />
+<h2 id="think-of-the-current-state">Think of the current state</h2>
+<p>“Which brush am I holding right now? Is it up or down? Where is it?
+Which fill is active?”</p>
+<p>They are reset on each loop of <code>draw()</code>.</p>
+<hr />
+<h2 id="section-2">🎨</h2>
+<p><code>color()</code></p>
+<blockquote>
+<p>[!note] Amazing topic, worth a seminar in itself!</p>
+</blockquote>
+<hr />
+<h2 id="section-3">🐭</h2>
+<p><code>mouseX</code> and <code>mouseY</code></p>
+<p>The p5.js “Hello World!”</p>
+<hr />
+<blockquote>
+<p>[!note] <code>background()</code> usually in beginning of
+<code>draw()</code></p>
+</blockquote>
+<hr />
+<h2 id="homework">Homework</h2>
+<ol type="1">
+<li>Scroll 5 meters of <code>#p5js</code> hashtag on Twitter or
+Instagram.</li>
+<li>Watch any one of Dan Shiffman’s videos.</li>
+<li>Combining ideas from this lecture, make 3 little programs out of
+<code>circle</code>s.
+<ul>
+<li>Explore the p5.js reference documentation.</li>
+</ul></li>
+</ol>
+<hr />
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">createCanvas</span>(<span class="dv">333</span><span class="op">,</span> <span class="dv">333</span>)<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  rot <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  bgcolor <span class="op">=</span> <span class="fu">color</span>(<span class="dv">111</span><span class="op">,</span> <span class="dv">222</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">10</span>)<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">background</span>(<span class="st">&quot;#ffffff22&quot;</span>)<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stroke</span>(<span class="st">&quot;white&quot;</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">line</span>(<span class="dv">111</span><span class="op">,</span> <span class="dv">222</span><span class="op">,</span> mouseX<span class="op">,</span> mouseY)<span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">translate</span>(mouseX<span class="op">,</span> mouseY)<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rotate</span>(rot)<span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textAlign</span>(CENTER)<span class="op">;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">text</span>(<span class="st">&quot;Thanks&quot;</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  rot <span class="op">=</span> rot <span class="op">+</span> <span class="fl">0.02</span><span class="op">;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Programmieren für Medienwissenshaftler*innen (051745-WiSe22/23)</p>
+<h1 id="seminar-7.-shapes-and-math">Seminar 7. Shapes and math</h1>
+<hr />
+<h2 id="homework-review">Homework review</h2>
+<p>“Make 3 little programs”</p>
+<hr />
+<h2 id="always-remember-the-reference-documentation">Always remember the
+reference documentation</h2>
+<p><code>p5.js reference</code> 🔍</p>
+<p>https://p5js.org/reference/</p>
+<hr />
+<h2 id="shapes">Shapes</h2>
+<ul>
+<li><code>circle</code>
+<ul>
+<li>A special case of <code>ellipse</code></li>
+</ul></li>
+<li><code>rect</code></li>
+<li><code>line</code></li>
+<li><code>text</code></li>
+<li>…</li>
+</ul>
+<hr />
+<h2 id="math">Math</h2>
+<p>The usual <code>+</code>, <code>-</code>, <code>*</code> and
+<code>/</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">circle</span>(width<span class="op">/</span><span class="dv">2</span><span class="op">,</span> mouseY <span class="op">-</span> <span class="dv">100</span><span class="op">,</span> mouseX <span class="op">*</span> <span class="fl">0.3</span>)<span class="op">;</span></span></code></pre></div>
+<hr />
+<h2 id="remember-iteration-from-act-1">Remember iteration from Act
+1?</h2>
+<p>For example the <em>Celestial Emporium of Benevolent Knowledge</em>
+(Borges 1942)</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>animals <span class="op">=</span> [<span class="st">&quot;belonging to the emperor&quot;</span><span class="op">,</span> <span class="st">&quot;embalmed&quot;</span><span class="op">,</span> <span class="st">&quot;tame&quot;</span><span class="op">,</span> <span class="st">&quot;suckling pigs&quot;</span>]<span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>animals<span class="op">.</span><span class="fu">forEach</span>(animal <span class="kw">=&gt;</span> {</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(animal)<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p>–</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>animals <span class="op">=</span> [<span class="st">&quot;belonging to the emperor&quot;</span><span class="op">,</span> <span class="st">&quot;embalmed&quot;</span><span class="op">,</span> <span class="st">&quot;tame&quot;</span><span class="op">,</span> <span class="st">&quot;suckling pigs&quot;</span>]<span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>animals<span class="op">.</span><span class="fu">forEach</span>(animal <span class="kw">=&gt;</span> {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">draw</span>(animal)<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">animate</span>(animal)<span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">interact_with</span>(animal)<span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">...</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p>–</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>animals <span class="op">=</span> [<span class="st">&quot;belonging to the emperor&quot;</span><span class="op">,</span> <span class="st">&quot;embalmed&quot;</span><span class="op">,</span> <span class="st">&quot;tame&quot;</span><span class="op">,</span> <span class="st">&quot;suckling pigs&quot;</span>]<span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">createCanvas</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">400</span>)<span class="op">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">background</span>(<span class="dv">220</span>)<span class="op">;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  animals<span class="op">.</span><span class="fu">forEach</span>(animal <span class="kw">=&gt;</span> {</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">text</span>(animal<span class="op">,</span> mouseX<span class="op">,</span> mouseY)<span class="op">;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+<h3 id="array-of-concentric-circles">Array of concentric circles</h3>
+<p>https://editor.p5js.org/mace/sketches/gYF243mRu</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sizes <span class="op">=</span> [<span class="dv">30</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">60</span><span class="op">,</span> <span class="dv">70</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">;</span> <span class="co">// I made them up!</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">createCanvas</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">400</span>)<span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">background</span>(<span class="dv">200</span>)<span class="op">;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">noFill</span>()<span class="op">;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  sizes<span class="op">.</span><span class="fu">forEach</span>(size <span class="kw">=&gt;</span> {</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">circle</span>(width<span class="op">/</span><span class="dv">2</span><span class="op">,</span> height<span class="op">/</span><span class="dv">2</span><span class="op">,</span> size <span class="op">*</span> <span class="dv">5</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>–</p>
+<p>Note the drawing order</p>
+<p>https://editor.p5js.org/mace/sketches/NnXYHnynN</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sizes <span class="op">=</span> [<span class="dv">30</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">60</span><span class="op">,</span> <span class="dv">70</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">createCanvas</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">400</span>)<span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">background</span>(<span class="dv">220</span>)<span class="op">;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  angle <span class="op">=</span> height<span class="op">/</span>mouseY <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">// noStroke();</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  sizes<span class="op">.</span><span class="fu">forEach</span>((size<span class="op">,</span> index) <span class="kw">=&gt;</span> { <span class="co">// NB. the second argument index</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ellipse</span>(width<span class="op">/</span><span class="dv">2</span><span class="op">,</span>               <span class="co">// center horizontally along x</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>            <span class="dv">100</span> <span class="op">+</span> (<span class="dv">1</span><span class="op">/</span>index) <span class="op">*</span> <span class="dv">200</span><span class="op">,</span> <span class="co">// lay them vertically along y</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            size<span class="op">*</span><span class="dv">5</span><span class="op">,</span>                <span class="co">// stretch horizontally</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>            size<span class="op">*</span><span class="fl">0.3</span><span class="op">*</span>angle)        <span class="co">// squeeze vertically</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+<h3 id="a-composition-of-lines">A composition of lines</h3>
+<p>https://editor.p5js.org/mace/sketches/y-TuBhQxU</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>points <span class="op">=</span> [[<span class="dv">10</span><span class="op">,</span> <span class="dv">40</span>]<span class="op">,</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>          [<span class="dv">50</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>          [<span class="dv">30</span><span class="op">,</span> <span class="dv">150</span>]<span class="op">,</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>          [<span class="dv">340</span><span class="op">,</span> <span class="dv">250</span>]<span class="op">,</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>          [<span class="dv">180</span><span class="op">,</span> <span class="dv">100</span>]</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>         ]<span class="op">;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">createCanvas</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">200</span>)<span class="op">;</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">background</span>(<span class="st">&quot;white&quot;</span>)<span class="op">;</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">strokeWeight</span>(<span class="dv">6</span>)<span class="op">;</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  points<span class="op">.</span><span class="fu">forEach</span>(point <span class="kw">=&gt;</span> {</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                <span class="fu">line</span>(point[<span class="dv">0</span>]<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> point[<span class="dv">1</span>]<span class="op">,</span> height)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+<ul>
+<li>🖼 Frieder Nake (1965). 13/9/65 Nr. 2 (“Hommage à Paul Klee”)
+http://dada.compart-bremen.de/item/artwork/414</li>
+</ul>
+<p><img
+src="http://dada.compart-bremen.de/imageUploads/medium/Nake_2004_147.jpg" /></p>
+<hr />
+<p>[[generative-design-covers-de-jp-en@1400w.1c5a2d80.webp]]</p>
+<p>Benedikt Groß, Hartmut Bohnacker, Julia Laub, Claudius Lazzeroni. <a
+href="http://www.generative-gestaltung.de/2/"><em>Generative Design:
+Visualize, Program, and Create with JavaScript in p5.js</em></a>.</p>
+<hr />
+<h2 id="the-3-transformations">The 3 transformations</h2>
+<p><code>rotate</code>, <code>translate</code> and
+<code>scale</code></p>
+<p>Reset every round of the <code>draw()</code> loop.</p>
+<p>You can group them with <code>push()</code> and
+<code>pop()</code></p>
+<hr />
+<h2 id="coding">Coding</h2>
+<p>[[f80fa20968b0ef7fe2911212ca290312.jpg]]</p>
+<hr />
+<h2 id="homework-1">Homework</h2>
+<p>Make 3 little programs, this time with feeling.</p>
+<ul>
+<li>Explore use of math to place your shapes</li>
+<li>Explore reacting to <code>mouseX</code> and <code>mouseY</code></li>
+<li>Explore iterating over a collection of items</li>
+</ul>
+<p>Try to read (and modify!) the code of one of the <a
+href="http://www.generative-gestaltung.de/2/">programs in <em>Generative
+Design</em></a>.</p>
+<blockquote>
+<p>[!note] Next time make sure to bring pen and paper!</p>
+</blockquote>
+<hr />
+<p>Thank you</p>
+<p>Programmieren für Medienwissenshaftler*innen (051745-WiSe22/23)</p>
+<h1 id="seminar-8.-functions">Seminar 8. Functions</h1>
+<hr />
+<h2 id="homework-review-1">Homework review</h2>
+<p>Make 3 little programs, this time with feeling.</p>
+<ul>
+<li>Explore use of math to place your shapes</li>
+<li>Explore reacting to <code>mouseX</code> and <code>mouseY</code></li>
+<li>Explore iterating over a collection of items</li>
+</ul>
+<hr />
+<h3 id="composing-shapes">Composing shapes</h3>
+<p>https://editor.p5js.org/mace/sketches/ahSn0E5Yt</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">createCanvas</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">400</span>)<span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">background</span>(<span class="dv">220</span>)<span class="op">;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fill</span>(<span class="st">&quot;red&quot;</span>)<span class="op">;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">noStroke</span>()<span class="op">;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rect</span>(<span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">circle</span>(<span class="dv">100</span><span class="op">+</span><span class="dv">25</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">circle</span>(<span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">+</span><span class="dv">25</span><span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>–</p>
+<p>Abstraction, ie. naming new actions from a collection of basic
+actions</p>
+<p><split even gap=1></p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Without function</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">createCanvas</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">400</span>)<span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">background</span>(<span class="dv">220</span>)<span class="op">;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fill</span>(<span class="st">&quot;red&quot;</span>)<span class="op">;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">noStroke</span>()<span class="op">;</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rect</span>(<span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">circle</span>(<span class="dv">100</span><span class="op">+</span><span class="dv">25</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">circle</span>(<span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">+</span><span class="dv">25</span><span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// With function</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">createCanvas</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">400</span>)<span class="op">;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">background</span>(<span class="dv">220</span>)<span class="op">;</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drawHeart</span>(<span class="st">&quot;red&quot;</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">drawHeart</span>(color) {</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fill</span>(color)<span class="op">;</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">noStroke</span>()<span class="op">;</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rect</span>(<span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">circle</span>(<span class="dv">100</span><span class="op">+</span><span class="dv">25</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">circle</span>(<span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">+</span><span class="dv">25</span><span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p></split></p>
+<hr />
+<h2 id="defining-functions-and-calling-them">Defining functions and
+calling them</h2>
+<p>Defining is “preparation”</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">drawHeart</span>(color) {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fill</span>(color)<span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">noStroke</span>()<span class="op">;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rect</span>(<span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">circle</span>(<span class="dv">100</span><span class="op">+</span><span class="dv">25</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">circle</span>(<span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">+</span><span class="dv">25</span><span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Calling is “using”</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">drawHeart</span>(<span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p>The above definition draws nothing before being called.</p>
+<hr />
+<h2 id="the-anatomy-of-a-function-definition">The anatomy of a function
+definition</h2>
+<ol type="1">
+<li>The keyword <code>function</code></li>
+<li>A descriptive name, often verb phrase</li>
+<li>Body inside <code>{...}</code></li>
+<li>Optionally arguments (input)</li>
+<li>Optionally a return value (output)</li>
+</ol>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">drawHeart</span>(color) {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fill</span>(color)<span class="op">;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">noStroke</span>()<span class="op">;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rect</span>(<span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">circle</span>(<span class="dv">100</span><span class="op">+</span><span class="dv">25</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">circle</span>(<span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">+</span><span class="dv">25</span><span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+<h2 id="functions-can-take-arguments-input">Functions can take arguments
+(input)</h2>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Hello world&quot;</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>            ╘═══════════╛ An argument</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">createCanvas</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">300</span>)<span class="op">;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>             ╘═╛       First argument</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                  ╘═╛  Second argument</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rect</span>(<span class="dv">50</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">300</span>)<span class="op">;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    ╘═╛                First <span class="fu">argument</span> (integer)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>         ╘══╛          Second <span class="fu">argument</span> (integer)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>             ╘══╛      Third <span class="fu">argument</span> (integer)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>                  ╘══╛ Fourth <span class="fu">argument</span> (integer)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Hello world&quot;</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">300</span>)<span class="op">;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>     ╘═══════════╛              First <span class="fu">argument</span> (string)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                    ╘═╛         Second <span class="fu">argument</span> (integer)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>                         ╘═╛    Third <span class="fu">argument</span> (integer)</span></code></pre></div>
+<p><em>&amp;c</em></p>
+<hr />
+<h2 id="functions-can-return-a-value-output">Functions can return a
+value (output)</h2>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sentences <span class="op">=</span> preface<span class="op">.</span><span class="fu">split</span>(<span class="st">&quot;.&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">whichSideIsMouseOn</span>() {</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (mouseX <span class="op">&lt;</span> width<span class="op">/</span><span class="dv">2</span>) {</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;left&quot;</span><span class="op">;</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;right&quot;</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+<h2 id="why-functions">Why functions?</h2>
+<ul>
+<li>To give collections of action <strong>better names</strong></li>
+<li><strong>Blackboxing</strong> of concerns</li>
+<li>To do the same thing <strong>many times</strong></li>
+<li>To do <strong>almost the same</strong> thing many times</li>
+<li>Automatic <strong>library features</strong>
+e.g. <code>setup()</code>, <code>draw()</code>,
+<code>mousePressed()</code></li>
+</ul>
+<p>See Soon+Cox (2020) <em><a
+href="https://aesthetic-programming.net/">Æsthetic Programming</a></em>
+<em>Function</em> in Chapter 3.</p>
+<hr />
+<h2 id="functions-for-randomness">Functions for randomness</h2>
+<p>We already saw <code>Math.random()</code></p>
+<p>From https://p5js.org/reference/#/p5/random</p>
+<p><code>random([min], [max])</code></p>
+<p><code>random(choices)</code></p>
+<p>–</p>
+<h3 id="a-composition-of-lines-with-random-displacement">A composition
+of lines with random displacement</h3>
+<p>https://editor.p5js.org/mace/sketches/qRNVBH1n1</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">createCanvas</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">200</span>)<span class="op">;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  points <span class="op">=</span> [[<span class="dv">10</span><span class="op">,</span> <span class="dv">40</span>]<span class="op">,</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>            [<span class="dv">50</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>            [<span class="dv">30</span><span class="op">,</span> <span class="dv">150</span>]<span class="op">,</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>            [<span class="dv">340</span><span class="op">,</span> <span class="dv">250</span>]<span class="op">,</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>            [<span class="dv">180</span><span class="op">,</span> <span class="dv">100</span>]</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>           ]<span class="op">;</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  displacement <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">background</span>(<span class="st">&quot;white&quot;</span>)<span class="op">;</span> </span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">strokeWeight</span>(<span class="dv">6</span>)<span class="op">;</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  points<span class="op">.</span><span class="fu">forEach</span>(point <span class="kw">=&gt;</span> {</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>                <span class="fu">line</span>(point[<span class="dv">0</span>] <span class="op">+</span> point[<span class="dv">0</span>]<span class="op">*</span>displacement<span class="op">,</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>                     point[<span class="dv">1</span>] <span class="op">-</span> point[<span class="dv">1</span>]<span class="op">*</span>displacement<span class="op">,</span> height)</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">mousePressed</span>() {</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>  displacement <span class="op">=</span> <span class="fu">random</span>()</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>  <span class="co">// displacement = random(-0.5, 0.5)</span></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;New random displacement is &quot;</span> <span class="op">+</span> displacement)</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+<p>Randomness is perhaps surprisingly useful in computation, e.g. in
+Machine Learning (ML), music <em>&amp;c</em>.</p>
+<h2 id="screenshot-2022-10-12-at-16.01.43.png">[[Screenshot 2022-10-12
+at 16.01.43.png]]</h2>
+<h2 id="the-open-work">“The open work”</h2>
+<ul>
+<li>📄 Eco (1962) Programmed Art.</li>
+<li>📄 Caplan (2018) From Collective Creation to Creating Collectives.
+Arte programmata and the Open Work.</li>
+</ul>
+<p>Different <em>phenomenology</em> of same <em>process</em>.</p>
+<p>–</p>
+<h2 id="arte-programmata-milan-1962."><em>Arte programmata</em> Milan,
+1962.</h2>
+<p>At Olivetti store.</p>
+<p>–</p>
+<p>https://www.youtube.com/watch?v=iji_cT9L6RQ</p>
+<p>Monachesi. <em>Arte programmata</em> (1963)</p>
+<hr />
+<h3 id="did-you-bring-pen-and-paper">Did you bring pen and paper?
+📝</h3>
+<table style="width:4%;">
+<colgroup>
+<col style="width: 4%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>## Kunstsammlungen der Ruhr-Universität Bochum</td>
+</tr>
+<tr class="even">
+<td>https://www.kusa-rub-moderne.de/</td>
+</tr>
+<tr class="odd">
+<td>[[IMG_20221004_140318.jpg]]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="modeling">Modeling</h3>
+<p>You can choose</p>
+<ul>
+<li>already very abstracted models (modernist art)</li>
+<li>less abstracted models (classical / figurative art)</li>
+</ul>
+<hr />
+<h2 id="homework-2">Homework</h2>
+<ul>
+<li>Watch Monachesi. <a
+href="https://www.youtube.com/watch?v=iji_cT9L6RQ"><em>Arte
+programmata</em></a> (1963)</li>
+<li>Model two artworks in p5.js</li>
+</ul>
+<blockquote>
+<p>[!task] Explore their attributes, composition, complexity, concepts,
+and phenomenology by rebuilding them from elementary graphic shapes in
+p5.js editor.</p>
+</blockquote>
+<p>Explore introducing randomness to your programs.</p>
+<p>–</p>
+<blockquote>
+<p>[!tip] Start with pen and paper.</p>
+</blockquote>
+<blockquote>
+<p>[!tip] Looking at the shadows can help.</p>
+</blockquote>
+<hr />
+<p>Potential further reading</p>
+<ul>
+<li>📖 Soon+Cox (2020) <em><a
+href="https://aesthetic-programming.net/">Æsthetic Programming</a></em>
+<em>setup()</em> in Chapter 5.o</li>
+<li>📄 Eco (1962) Programmed Art.</li>
+<li>📄 Caplan (2018) From Collective Creation to Creating Collectives.
+Arte programmata and the Open Work.</li>
+<li>📖 Ernst (2013) Underway to the Dual System. Classical Archives and
+Digital Memory.</li>
+<li>What media æsthetic literature you have studied?</li>
+</ul>
+<hr />
+<h2 id="bonus-non-modernist-content">Bonus (non-modernist) content</h2>
+<p>https://editor.p5js.org/mace/sketches/3gs4vNoq3</p>
+<p>[[Screenshot 2022-12-07 at 13.31.11.png]]</p>
+<hr />
+<p>Thank you</p>
+<p>Programmieren für Medienwissenshaftler*innen (051745-WiSe22/23)</p>
+<h1 id="seminar-9.-image-manipulation">Seminar 9. Image
+manipulation</h1>
+<hr />
+<h2 id="homework-review-2">Homework review</h2>
+<p>“Model two artworks.”</p>
+<hr />
+<h2 id="get-back-out-there">Get back out there!</h2>
+<p>https://editor.p5js.org/mace/sketches/ualvv5LlX</p>
+<hr />
+<h2 id="what-is-an-image-on-a-computer">What is an image on a
+computer?</h2>
+<p>Basically a 3-dimensional space.</p>
+<ul>
+<li>Columns of rows of channels</li>
+<li>Channels = RGB</li>
+</ul>
+<p>Basic unit: the pixel</p>
+<hr />
+<p><img
+src="https://cdn.tutsplus.com/cdn-cgi/image/width=600/active/uploads/legacy/tuts/076_rgbShift/Tutorial/1.jpg" />
+Image from
+https://code.tutsplus.com/de/tutorials/create-a-retro-crt-distortion-effect-using-rgb-shifting–active-3359</p>
+<hr />
+<h2 id="pixel-sorting">Pixel sorting</h2>
+<hr />
+<h2 id="homework-3">Homework</h2>
+<ul>
+<li>Prepare for Show&amp;Tell next week</li>
+<li>Try to modify the pixel sorting photo app thing.</li>
+</ul>
+<p>Clues</p>
+<ul>
+<li>There are a bunch of sort functions. Apply them on line 78</li>
+<li>Sort by redness instead of blueness</li>
+<li>Change the lighting conditions of photography (use p5.js! ;))</li>
+<li>Change the threshold values</li>
+<li>Condition <code>Image.set()</code> on <code>y_index</code> on line
+81</li>
+<li>Change the UI</li>
+</ul>
+<hr />
+<p>Thanks</p>
+<p>Programmieren für Medienwissenshaftler*innen (051745-WiSe22/23)</p>
+<h1 id="seminar-10.-show-and-tell">Seminar 10. Show and Tell</h1>
+<hr />
+<h2 id="agenda">Agenda</h2>
+<ul>
+<li>Show and tell</li>
+<li>From Act 2 to Act 3</li>
+<li>Reflection with Paul</li>
+</ul>
+<hr />
+<h2 id="roll-call">Roll call</h2>
+<p>https://moodle.ruhr-uni-bochum.de/user/index.php?id=48287</p>
+<hr />
+<h2 id="show-and-tell">Show and Tell</h2>
+<p>https://editor.p5js.org/mace/sketches/8DAcD4mKd</p>
+<hr />
+<h2 id="from-act-2-to-act-3">From Act 2 to Act 3</h2>
+<p>Acknowledge that besides foundations, we have applied basics concepts
+to compose more complex programs from basic elements, and organized
+substantial amount of code. Additionally we’ve explored computational
+æsthetics. 🎉</p>
+<ul>
+<li>☑︎ Act 1. From the web to foundations</li>
+<li>☑︎ Act 2. Creative programming with p5.js</li>
+<li>☐Act 3. Exploration under supervision</li>
+</ul>
+<hr />
+<h2 id="reflection-with-paul">Reflection with Paul</h2>
+<hr />
+<p>A reminder via Moodle on [[2022-12-19]]</p>
+<blockquote>
+<p>To close off the Act 2 about creative programming with JavaScript and
+p5.js, this Wednesday we will do our second Show &amp; Tell.</p>
+<p>As you know, participation in each of the three Show &amp; Tell
+sessions is, unless otherwise agreed, mandatory for passing this
+seminar. In the Show &amp; Tells you the important opportunity to
+reflect on and wrap up what your medienpraxis, as well as see what your
+peers have explored. The second Show &amp; Tell this week will run the
+same way as the earlier one in the end of Act 1.</p>
+<p>On this _Programmieren für Medienwissenschaftler*innen_
+<em>seminar</em> we try to nourish explorative, reflexive, playful,
+creative, critical and even transgressive attitudes towards
+software (see Cox+Soon and Montfort books) as we engage first-hand in
+media practice knowledge of programming. I hope you all have been having
+fun so far exploring the fascinating medium. We have only taken first
+steps on a possibly life-long journey into the infinite possibilities
+(and rabbit holes) of software and the digital more generally.</p>
+<p>For this Wednesday feel free to organize your 5 minutes of Show &amp;
+Tell as you choose. We like to see code – no powerpoints if you can
+avoid it :) References to academic literature, sciences, the arts, and
+other code are of course welcome… and how we do things in academia. You
+can Show &amp; Tell as a narrative (like a media historian might), an
+inquiry into beauty, grace, horror and the grotesque (like a media
+æstheticist might), a Philosophical argument (like a media theorist
+might), <del>a list</del> an array of interrelated small projects (like
+a designer might), a cascade of struggles and failures (like anyone
+might, to be honest)… or whatever suits best your learning from this
+Show &amp; Tell.</p>
+<p>After that, we will zone out for the holidays until January.</p>
+</blockquote>
+</body>
+</html>
