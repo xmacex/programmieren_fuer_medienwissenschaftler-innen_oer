@@ -671,7 +671,7 @@ and Humanities</em> chapter 1. Introduction
 <li>Break the web</li>
 </ul>
 <p>–</p>
-<pre class="mermaid"><code>flowchart TD;
+<pre class="mermaid">flowchart TD;
 Find_a_website --&gt; normative;
 
 normative{Normative_choice}
@@ -681,7 +681,7 @@ normative -- Fix_it --&gt; Apply_JS;
 Apply_JS --&gt; Take_screenshot;
 Take_screenshot --&gt; Take_screenshot;
 Take_screenshot --&gt; Write_a_paragraph;
-Write_a_paragraph -.-&gt; Find_a_website;</code></pre>
+Write_a_paragraph -.-&gt; Find_a_website;</pre>
 <table style="width:4%;">
 <colgroup>
 <col style="width: 4%" />
@@ -712,7 +712,7 @@ web</h1>
 <h2 id="montforts-chapter-1">Montfort’s chapter 1</h2>
 <p>What did you make of it?</p>
 <p>–</p>
-<pre class="mermaid"><code>flowchart TD;
+<pre class="mermaid">flowchart TD;
 Find_a_website --&gt; normative;
 
 normative{Normative_choice}
@@ -722,7 +722,7 @@ normative -- Fix_it --&gt; Apply_JS;
 Apply_JS --&gt; Take_screenshot;
 Take_screenshot --&gt; Take_screenshot;
 Take_screenshot --&gt; Write_a_paragraph;
-Write_a_paragraph -.-&gt; Find_a_website;</code></pre>
+Write_a_paragraph -.-&gt; Find_a_website;</pre>
 <hr />
 <h2 id="more-of-the-browser-developer-console">More of the browser
 developer console</h2>
@@ -740,7 +740,7 @@ developer console</h2>
 <p>An <em>object</em> represents <em>a-thing-in-the-world</em>.</p>
 <p>Let’s continue with websites (for now)</p>
 <p>–</p>
-<pre class="mermaid"><code>flowchart LR;
+<pre class="mermaid">flowchart LR;
 subgraph list_of_news;
     news_1;
     news_2;
@@ -750,7 +750,7 @@ end
 subgraph header;
     Studium;
     Institut;
-end;</code></pre>
+end;</pre>
 <p>–</p>
 <p>Objects have <em>properties</em> and <em>methods</em>. Objects are
 collections of those (and almost nothing more)</p>
@@ -921,7 +921,7 @@ class="sourceCode js"><code class="sourceCode javascript"><span id="cb24-1"><a h
 <hr />
 <h2 id="homework-1">Homework</h2>
 <p>Same as last week, this time with more feeling!</p>
-<pre class="mermaid"><code>flowchart TD;
+<pre class="mermaid">flowchart TD;
 Find_a_website --&gt; normative;
 
 normative{Normative_choice}
@@ -931,7 +931,7 @@ normative -- Fix_it --&gt; Apply_JS;
 Apply_JS --&gt; Take_screenshot;
 Take_screenshot --&gt; Take_screenshot;
 Take_screenshot --&gt; Write_a_paragraph;
-Write_a_paragraph -.-&gt; Find_a_website;</code></pre>
+Write_a_paragraph -.-&gt; Find_a_website;</pre>
 <p>Work with a friend; use https://www.w3schools.com/js</p>
 <hr />
 <p>Thank you</p>
@@ -941,7 +941,7 @@ iteration</h1>
 <hr />
 <h2 id="homework-review-1">Homework review</h2>
 <p>–</p>
-<pre class="mermaid"><code>flowchart TD;
+<pre class="mermaid">flowchart TD;
 Find_a_website --&gt; normative;
 
 normative{Normative_choice}
@@ -951,7 +951,7 @@ normative -- Fix_it --&gt; Apply_JS;
 Apply_JS --&gt; Take_screenshot;
 Take_screenshot --&gt; Take_screenshot;
 Take_screenshot --&gt; Write_a_paragraph;
-Write_a_paragraph -.-&gt; Find_a_website;</code></pre>
+Write_a_paragraph -.-&gt; Find_a_website;</pre>
 <hr />
 <h2 id="arrays">Arrays</h2>
 <p>A strange word for simple “list”.</p>
@@ -1322,7 +1322,7 @@ class="sourceCode js"><code class="sourceCode javascript"><span id="cb54-1"><a h
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>} else {</span>
 <span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>    make_techno_on_synthesizer<span class="op">;</span></span>
 <span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<pre class="mermaid"><code>flowchart LR;
+<pre class="mermaid">flowchart LR;
 
 condition{tired}
 
@@ -1331,14 +1331,14 @@ condition -- true --&gt; sleep;
 condition -- false --&gt; make_techno_on_synthesizer;
 
 sleep --&gt; finish((finish));
-make_techno_on_synthesizer --&gt; finish;</code></pre>
+make_techno_on_synthesizer --&gt; finish;</pre>
 <p>–</p>
 <p>A special case: by default do nothing</p>
 <div class="sourceCode" id="cb56"><pre
 class="sourceCode js"><code class="sourceCode javascript"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (tired) {</span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>    sleep<span class="op">;</span></span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<pre class="mermaid"><code>flowchart LR;
+<pre class="mermaid">flowchart LR;
 
 condition{tired}
 
@@ -1348,7 +1348,7 @@ condition -- true --&gt; sleep;
 sleep --&gt; finish((finish));
 condition -.-&gt; finish;
 
-make_techno_on_synthesizer;</code></pre>
+make_techno_on_synthesizer;</pre>
 <hr />
 <h2 id="examples-of-conditional-execution">Examples of conditional
 execution</h2>
