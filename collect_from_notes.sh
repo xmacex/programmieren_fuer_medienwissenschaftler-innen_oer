@@ -2,7 +2,7 @@
 
 echo "Collecting Act 1"
 pandoc \
-    ~/notes/Media\ Practice\ Knowledge/Prepare\ seminar\ [1-4]\.*md \
+    ~/notes/Media\ Practice\ Knowledge/Prepare\ seminar\ {1..5}\.*md \
     --standalone \
     --toc \
     --include-in-header=mermaid-header.html \
@@ -11,9 +11,8 @@ pandoc \
 
 echo "Collecting Act 2"
 pandoc \
-    ~/notes/Media\ Practice\ Knowledge/Prepare\ seminar\ [6-9]\.*\
+    ~/notes/Media\ Practice\ Knowledge/Prepare\ seminar\ {6..10}\.*\
     --standalone \
     --toc \
-    --include-in-header=mermaid-header.html \
     --metadata title="Programming for Media Studies, from basics to creative programming" \
     -o act_2/index.html
